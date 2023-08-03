@@ -35,8 +35,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool isEnable = false;
   bool isEdit = false;
 
-  // final user = FirebaseAuth.instance.currentUser;
-
   @override
   void initState() {
     getUserData();
@@ -83,11 +81,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final emailController = TextEditingController(text: email);
-    // final nameController = TextEditingController(text: name);
-    // final addressController = TextEditingController(text: address);
-    // final phoneController = TextEditingController(text: phone);
-
     final FirebaseAuth auth = FirebaseAuth.instance;
     final User? user = auth.currentUser;
     final uid = user!.uid;
@@ -143,12 +136,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: image != null ?CachedNetworkImage(
-                        imageUrl: image,
-                        placeholder: (context, url) => const CircularProgressIndicator(),
-                         errorWidget: (context, url, error) => const Icon(Icons.error),
-                        fit: BoxFit.fill,
-                      ):Image.asset("assets/images/person-icon-476x512-hr6biidg.png"),
+                      child: image != null
+                          ? CachedNetworkImage(
+                              imageUrl: image,
+                              placeholder: (context, url) =>
+                                  const CircularProgressIndicator(),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                              fit: BoxFit.fill,
+                            )
+                          : Image.asset(
+                              "assets/images/person-icon-476x512-hr6biidg.png"),
                     ),
                     Text(
                       "Hi there $name",

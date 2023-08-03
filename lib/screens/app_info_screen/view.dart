@@ -15,7 +15,7 @@ class AppDetails extends StatelessWidget {
         backgroundColor: ColorManager.primary,
         centerTitle: true,
         title: Text(
-          "Developar Information",
+          "Developer Information",
           style: TextStyle(
             fontWeight: FontWeightManager.bold,
             color: ColorManager.white,
@@ -24,7 +24,8 @@ class AppDetails extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppPadding.p20,vertical: AppPadding.p20),
+        padding: EdgeInsets.symmetric(
+            horizontal: AppPadding.p20, vertical: AppPadding.p20),
         child: Column(
           children: [
             Row(
@@ -52,21 +53,34 @@ class AppDetails extends StatelessWidget {
             ),
             Card(
               child: Padding(
-                padding:  const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     info(base: "name", data: "Mahmoud ElSaid Dabour"),
-                    const Divider(thickness: 2,),
+                    const Divider(
+                      thickness: 2,
+                    ),
                     info(base: "Phone", data: "01099101469"),
-                    const Divider(thickness: 2,),
-                    info(base: "email", data: "Mahmoud.dabour1000000@gmail.com"),
-                    const Divider(thickness: 2,),
+                    const Divider(
+                      thickness: 2,
+                    ),
+                    info(
+                        base: "email", data: "Mahmoud.dabour1000000@gmail.com"),
+                    const Divider(
+                      thickness: 2,
+                    ),
                     info(base: "job", data: "Flutter Developer"),
-                    const Divider(thickness: 2,),
+                    const Divider(
+                      thickness: 2,
+                    ),
                     info(base: "faculty", data: "Engineering"),
-                    const Divider(thickness: 2,),
+                    const Divider(
+                      thickness: 2,
+                    ),
                     info(base: "university", data: "Mansoura University"),
-                    const Divider(thickness: 2,),
+                    const Divider(
+                      thickness: 2,
+                    ),
                   ],
                 ),
               ),
@@ -78,27 +92,31 @@ class AppDetails extends StatelessWidget {
   }
 }
 
-Widget info({required String base, required String data}){
+Widget info({required String base, required String data}) {
   return Row(
     children: [
-      Text('$base:  ',style: TextStyle(
-        fontWeight: FontWeightManager.semiBold,
-        color: ColorManager.primary,
-        fontSize: FontSize.s18,
-      ),
+      Text(
+        '$base:  ',
+        style: TextStyle(
+          fontWeight: FontWeightManager.semiBold,
+          color: ColorManager.primary,
+          fontSize: FontSize.s18,
+        ),
       ),
       const Spacer(),
-
       SizedBox(
         width: 200.w,
-        child: Text(data,style: TextStyle(
-          fontWeight: FontWeightManager.semiBold,
-          color: ColorManager.black,
-          fontSize: FontSize.s20,
-          overflow: TextOverflow.visible,
-        ),maxLines: 2,),
+        child: Text(
+          data,
+          style: TextStyle(
+            fontWeight: FontWeightManager.semiBold,
+            color: ColorManager.black,
+            fontSize: FontSize.s20,
+            overflow: TextOverflow.visible,
+          ),
+          maxLines: 2,
+        ),
       ),
-
     ],
   );
 }
