@@ -21,7 +21,7 @@ class HomeScreenBody extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            const SizedBox(height:100,child: SelectByCategory()),
+             SizedBox(height:100,child: SelectByCategory()),
             const GridData(),
           ],
         ),

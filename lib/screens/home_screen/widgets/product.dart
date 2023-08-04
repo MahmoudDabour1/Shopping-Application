@@ -123,7 +123,10 @@ class _TaskWidgetState extends State<TaskWidget> {
             borderRadius: BorderRadius.circular(15.r),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: ColorManager.primary, spreadRadius: 1, blurRadius: 5),
+                color: ColorManager.primary,
+                spreadRadius: 1,
+                blurRadius: 5,
+              ),
             ],
             color: ColorManager.white,
           ),
@@ -209,14 +212,24 @@ class _TaskWidgetState extends State<TaskWidget> {
               const Divider(
                 thickness: 2,
               ),
-              Text(
-                "Description: ",
-                style: TextStyle(
-                    color: ColorManager.primary,
-                    fontSize: FontSize.s14,
-                    fontWeight: FontWeightManager.semiBold,
-                    overflow: TextOverflow.visible),
-                maxLines: 2,
+              Container(
+                width: 100,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: ColorManager.primary,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Text(
+                  "Description: ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: ColorManager.white,
+                      fontSize: FontSize.s14,
+                      fontWeight: FontWeightManager.bold,
+                      // overflow: TextOverflow.visible
+                    ),
+                  // maxLines: 2,
+                ),
               ),
               SizedBox(
                 width: 200.w,

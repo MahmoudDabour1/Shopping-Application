@@ -53,11 +53,26 @@ class ChangeSignUp extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                Text(
-                  StringManager.iAccept,
+                TextButton(
+                  onPressed: (){
+                    AwesomeDialog(
+                      context: context,
+                      title: "success",
+                      dialogType: DialogType.success,
+                      padding: EdgeInsets.all(AppPadding.p20),
+                      body: Text(
+                        StringManager.terms,
+                        style: TextStyle(
+                          fontSize: FontSize.s20,
+                          fontWeight: FontWeightManager.semiBold,
+                        ),
+                      ),
+                    ).show();
+                  },
+                 child: Text(StringManager.iAccept,
                   style: TextStyle(
                     fontSize: FontSize.s16,
-                  ),
+                  ),)
                 ),
               ],
             ),

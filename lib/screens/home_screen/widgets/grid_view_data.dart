@@ -44,66 +44,99 @@ class _GridDataState extends State<GridData> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Select By Category ", style: TextStyle(
-                        fontSize: FontSize.s20,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.bold,
+                      Text(
+                        "Select By Category ",
+                        style: TextStyle(
+                          fontSize: FontSize.s20,
+                          color: ColorManager.black,
+                          fontWeight: FontWeightManager.bold,
+                        ),
                       ),
-                      ),
-                      TextButton.icon(onPressed: (){
-                        return showTaskCategoryDialog(context, size);
-                      }, icon: Icon(Icons.keyboard_double_arrow_down_outlined,color: ColorManager.black,), label: Text("Select",style: TextStyle(
-                        fontSize: FontSize.s20,
-                        color: ColorManager.primary,
-                        fontWeight: FontWeightManager.bold,
-                      ),))
+                      TextButton.icon(
+                          onPressed: () {
+                            return showTaskCategoryDialog(context, size);
+                          },
+                          icon: Icon(
+                            Icons.keyboard_double_arrow_down_outlined,
+                            color: ColorManager.black,
+                          ),
+                          label: Text(
+                            "Select",
+                            style: TextStyle(
+                              fontSize: FontSize.s20,
+                              color: ColorManager.primary,
+                              fontWeight: FontWeightManager.bold,
+                            ),
+                          ))
                     ],
                   ),
                   GridView.count(
                     crossAxisCount: 2,
                     crossAxisSpacing: 3.sp,
                     mainAxisSpacing: 2.sp,
-                    childAspectRatio: 1 / 1.7,
+                    childAspectRatio: 1 / 1.9,
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     children: List.generate(
                         snapshot.data!.docs.length,
-                            (index) => TaskWidget(
-                          name: snapshot.data!.docs[index]['name'],
-                          description: snapshot.data!.docs[index]
-                          ['description'],
-                          id: snapshot.data!.docs[index]['id'],
-                          image: snapshot.data!.docs[index]['image'],
-                          category: snapshot.data!.docs[index]['category'],
-                          price: snapshot.data!.docs[index]['price'],
-                          count: snapshot.data!.docs.length,
-                        )),
+                        (index) => TaskWidget(
+                              name: snapshot.data!.docs[index]['name'],
+                              description: snapshot.data!.docs[index]
+                                  ['description'],
+                              id: snapshot.data!.docs[index]['id'],
+                              image: snapshot.data!.docs[index]['image'],
+                              category: snapshot.data!.docs[index]['category'],
+                              price: snapshot.data!.docs[index]['price'],
+                              count: snapshot.data!.docs.length,
+                            )),
                   ),
                 ],
               );
             } else {
-              return  Center(
+              return Center(
                 child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Select By Category ", style: TextStyle(
-                          fontSize: FontSize.s20,
-                          color: ColorManager.black,
-                          fontWeight: FontWeightManager.bold,
+                        Text(
+                          "Select By Category ",
+                          style: TextStyle(
+                            fontSize: FontSize.s20,
+                            color: ColorManager.black,
+                            fontWeight: FontWeightManager.bold,
+                          ),
                         ),
-                        ),
-                        TextButton.icon(onPressed: (){
-                          return showTaskCategoryDialog(context, size);
-                        }, icon: Icon(Icons.keyboard_double_arrow_down_outlined,color: ColorManager.black,), label: Text("Select",style: TextStyle(
-                          fontSize: FontSize.s20,
-                          color: ColorManager.primary,
-                          fontWeight: FontWeightManager.bold,
-                        ),))
+                        TextButton.icon(
+                            onPressed: () {
+                              return showTaskCategoryDialog(context, size);
+                            },
+                            icon: Icon(
+                              Icons.keyboard_double_arrow_down_outlined,
+                              color: ColorManager.black,
+                            ),
+                            label: Text(
+                              "Select",
+                              style: TextStyle(
+                                fontSize: FontSize.s20,
+                                color: ColorManager.primary,
+                                fontWeight: FontWeightManager.bold,
+                              ),
+                            ))
                       ],
                     ),
-                    const Center(child: Text('No tasks has been uploaded')),
+                    Padding(
+                      padding: EdgeInsets.only(top: 50.h),
+                      child: Center(
+                          child: Text(
+                        'No tasks has been uploaded',
+                        style: TextStyle(
+                          fontWeight: FontWeightManager.bold,
+                          color: ColorManager.black,
+                          fontSize: FontSize.s20,
+                        ),
+                      )),
+                    ),
                   ],
                 ),
               );

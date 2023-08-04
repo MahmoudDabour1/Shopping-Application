@@ -51,16 +51,16 @@ class LoginCubit extends Cubit<LoginState> {
                 padding: EdgeInsets.all(AppPadding.p20),
                 body:  Text(
                   "Please Check your Email To verification email",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: FontSize.s20,
                     fontWeight: FontWeightManager.semiBold,
                   ),
                 )).show();
             emit(LoginNotLoadingState());
-
-            /////////utfjhd82
           } else {
             emit(LoginSuccessState());
+            isLoading = false;
           }
         });
       } on FirebaseAuthException catch (e) {
@@ -71,6 +71,7 @@ class LoginCubit extends Cubit<LoginState> {
             title: "Error",
             body: const Text("No user found for that email"),
           ).show();
+          isLoading = false;
         } else if (e.code == 'wrong-password') {
           AwesomeDialog(
             context: context,
@@ -79,11 +80,12 @@ class LoginCubit extends Cubit<LoginState> {
             body: Text(
               "Wrong password provided for that user",
               style: TextStyle(
-                fontSize: FontSize.s16,
+                fontSize: FontSize.s14,
                 fontWeight: FontWeightManager.medium,
               ),
             ),
           ).show();
+          isLoading = false;
         }
       }
     }

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iti_final_project/core/values_manager.dart';
-
 import '../../core/color_manager.dart';
 import '../../core/font_manager.dart';
 import '../../core/helper_method.dart';
@@ -93,6 +92,7 @@ class SignUpCubit extends Cubit<SignUpState> {
                dialogType: DialogType.error,
                body: const Text("Password is too weak"))
                .show();
+           isLoading = false;
          } else if (e.code == 'email-already-in-use') {
            AwesomeDialog(
                context: context,
@@ -100,6 +100,7 @@ class SignUpCubit extends Cubit<SignUpState> {
                dialogType: DialogType.error,
                body: const Text("The account already exists for that email"))
                .show();
+           isLoading = false;
          }
        } catch (e) {
          emit(SignUpErrorState());
@@ -110,6 +111,7 @@ class SignUpCubit extends Cubit<SignUpState> {
              padding: EdgeInsets.all(AppPadding.p20),
              body: Text(e.toString()))
              .show();
+         isLoading = false;
        }
      }else{
        AwesomeDialog(
@@ -123,6 +125,7 @@ class SignUpCubit extends Cubit<SignUpState> {
              color: ColorManager.black,
            ),))
            .show();
+       isLoading = false;
      }
     } else{
       AwesomeDialog(
@@ -133,11 +136,12 @@ class SignUpCubit extends Cubit<SignUpState> {
           body: Text(
             "Are you Accept Terms & Conditions",
             style: TextStyle(
-              fontSize: FontSize.s16,
+              fontSize: FontSize.s14,
               fontWeight:
               FontWeightManager.medium,
             ),
           )).show();
+      isLoading = false;
     }
   }
 }
